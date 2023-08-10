@@ -1,0 +1,38 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <property name="connection.url">jdbc:h2:mem:test</property>
+        <!--a linha acima sempre vai mudar de acordo com o que for usado
+         url do mySQL -> busca a tabela e o bdd-->
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">1</property>
+        <!-- Select our SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+        <!--dialect é que linguagem vai usar para falar com o bdd-->
+        <!-- Echo the SQL to stdout -->
+        <property name="show_sql">true</property>
+        <!--para a gente ver/ cada estratégia depende da necessidade-->
+        <!-- Set the current session context -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">create-drop</property>
+        <!--para que não haja conflito-->
+        <!-- dbcp connection pool configuration -->
+        <property name="hibernate.dbcp.initialSize">5</property>
+        <property name="hibernate.dbcp.maxTotal">20</property>
+        <property name="hibernate.dbcp.maxIdle">10</property>
+        <property name="hibernate.dbcp.minIdle">5</property>
+        <property name="hibernate.dbcp.maxWaitMillis">-1</property>
+        <mapping class="entity.Pessoa" />
+        <!--mapeamento de todas as classes que estão utilizando
+        <mapping class="entity.Pessoa" /> -> muda o nome do entity de acordo com a entidade
+        primeiramente, cria um map para cada um
+        -->
+    </session-factory>
+</hibernate-configuration>
