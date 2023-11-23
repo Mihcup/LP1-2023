@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="702.0" prefWidth="862.0" style="-fx-background-color: rgb(181,212,245);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.dedigados.gerenciadordetarefas_lp1.controllers.TelaPrincipalController">
+    <children>
+        <Label fx:id="aviso" layoutX="219.0" layoutY="200.0" prefHeight="18.0" prefWidth="0.0" textFill="deeppink" />
+        <Button id="idEditar" fx:id="btneditar" layoutX="530.0" layoutY="471.0" mnemonicParsing="false" onAction="#editarTarefa" style="-fx-background-color: rgb(120,150,255); -fx-font-weight: bold;" text="Editar" textFill="#203d65">
+            <font>
+                <Font name="Quicksand Bold" size="13.0" />
+            </font>
+      </Button>
+        <!--<ImageView fitHeight="103.0" fitWidth="101.0" layoutX="179.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: lightblue;">
+            <image>
+                <Image url="@../../../../../../../../../Downloads/cadeado-transformed.jpg" />
+            </image>
+        </ImageView>-->
+        <Label alignment="CENTER" layoutX="76.0" layoutY="45.0" prefHeight="50.0" prefWidth="167.0" style="-fx-background-radius: 30; -fx-background-color: lavender; -fx-label-padding: 8; -fx-font-weight: bold;" text="Agenda M&amp;J" textAlignment="CENTER" textFill="#3d3180">
+            <font>
+                <Font name="Quicksand Bold" size="18.0" />
+            </font>
+        </Label>
+        <BorderPane layoutY="-5.0" prefHeight="687.0" prefWidth="41.0" style="-fx-background-color: rgb(100,130,235);" />
+        <Button id="IdAdicionar" fx:id="btnsalvar" layoutX="440.0" layoutY="471.0" mnemonicParsing="false" onAction="#salvarTarefa" style="-fx-background-color: rgb(120,150,255); -fx-font-weight: bold;" text="Salvar" textFill="#203d65">
+            <font>
+                <Font name="Quicksand Bold" size="13.0" />
+            </font>
+        </Button>
+        <Button id="idLimpar" fx:id="btnlimpar" layoutX="685.0" layoutY="471.0" mnemonicParsing="false" onAction="#limparTarefa" style="-fx-background-color: rgb(120,150,255); -fx-font-weight: bold;" text="Limpar" textFill="#203d65">
+            <font>
+                <Font name="Quicksand Bold" size="13.0" />
+            </font>
+        </Button>
+        <Button id="idApagar" fx:id="btndeletar" layoutX="605.0" layoutY="471.0" mnemonicParsing="false" onAction="#deletarTarefa" style="-fx-background-color: rgb(120,150,255); -fx-font-weight: bold;" text="Deletar" textFill="#203d65">
+            <font>
+                <Font name="Quicksand Bold" size="13.0" />
+            </font>
+        </Button>
+      <MenuButton fx:id="btnCategoria" layoutX="353.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#getDataCategoria" prefHeight="26.0" prefWidth="156.0" style="-fx-background-color: rgb(181,212,245); -fx-border-color: white;" text="Tarefas " textFill="#203d65">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </MenuButton>
+      <Pane layoutX="585.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button id="IdAdicionar" fx:id="excluirCategoria" layoutX="27.0" layoutY="15.0" mnemonicParsing="false" onAction="#excluirMenuItem" style="-fx-background-color: rgb(120,150,255); -fx-font-weight: bold;" text="Excluir" textFill="#203d65">
+               <font>
+                  <Font name="Quicksand Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button id="IdAdicionar" fx:id="addCategoria" layoutX="100.0" layoutY="15.0" mnemonicParsing="false" onAction="#adicionarMenuItem" style="-fx-background-color: rgb(120,150,255); -fx-font-weight: bold;" text="Adicionar" textFill="#203d65">
+               <font>
+                  <Font name="Quicksand Bold" size="13.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <TableView fx:id="tabela" layoutX="337.0" layoutY="148.0" onMouseClicked="#getData" prefHeight="308.0" prefWidth="497.0" style="-fx-background-radius: 24;">
+        <columns>
+          <TableColumn id="colid" fx:id="colid" prefWidth="41.0" text="Id" />
+          <TableColumn fx:id="titulo" prefWidth="109.0" text="Título" />
+            <TableColumn fx:id="descri" prefWidth="220.0" text="Descrição" />
+            <TableColumn fx:id="datee" prefWidth="77.0" text="Data" />
+            <TableColumn fx:id="checkBoxCol" prefWidth="49.0" text="Status" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="81.0" layoutY="109.0" prefHeight="308.0" prefWidth="200.0" style="-fx-background-color: rgb(120,150,255); -fx-background-radius: 15;">
+         <children>
+            <TextField id="des" fx:id="descricaoTarefa" alignment="TOP_LEFT" layoutX="26.0" layoutY="79.0" prefHeight="106.0" prefWidth="149.0" promptText="Descrição" />
+            <TextField id="tittle" fx:id="tituloTarefa" layoutX="26.0" layoutY="35.0" prefHeight="27.0" prefWidth="149.0" promptText="Titulo" />
+            <DatePicker fx:id="dataTarefa" layoutX="21.0" layoutY="207.0" prefHeight="25.0" prefWidth="156.0" promptText="Data" />
+            <MenuButton fx:id="btnCategorias" layoutX="21.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#getCategoria" prefHeight="27.0" prefWidth="156.0" style="-fx-background-color: rgb(181,212,245);" text="Categorias" textFill="#203d65">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+      <Button id="retornarlogin" fx:id="retornar" layoutX="110.0" layoutY="429.0" mnemonicParsing="false" onAction="#retornar" style="-fx-background-color: rgb(181,212,245); -fx-font-weight: bold;" text="Retornar ao Login" textFill="#203d65" underline="true">
+         <font>
+            <Font name="Quicksand Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button id="IdAdicionar" fx:id="editarCategoria" layoutX="542.0" layoutY="96.0" mnemonicParsing="false" onAction="#editarCategoria" style="-fx-background-color: rgb(120,150,255); -fx-font-weight: bold;" text="Editar" textFill="#203d65">
+         <font>
+            <Font name="Quicksand Bold" size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="categoria" layoutX="353.0" layoutY="96.0" prefHeight="27.0" prefWidth="156.0" promptText="Categoria" />
+      <ProgressBar fx:id="progressBar" layoutX="105.0" layoutY="552.0" prefHeight="27.0" prefWidth="627.0" progress="0.0" />
+      <Button id="IdAdicionar" fx:id="progresso" layoutX="105.0" layoutY="518.0" mnemonicParsing="false" onAction="#atualizarProgressBar" style="-fx-background-color: rgb(120,150,255); -fx-font-weight: bold;" text="Atualizar progresso" textFill="#203d65">
+         <font>
+            <Font name="Quicksand Bold" size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="mensagemProgresso" layoutX="105.0" layoutY="585.0" prefHeight="5.0" prefWidth="452.0" textFill="#9e18cc" />
+    </children>
+</AnchorPane>
